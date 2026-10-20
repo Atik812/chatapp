@@ -1,0 +1,13 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${DOCKERHUB_USERNAME:-local}/my-app:latest
+    ports:
+      - "5001:5001"
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
+
